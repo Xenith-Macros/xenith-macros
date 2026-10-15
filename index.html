@@ -95,6 +95,10 @@
   .donations .foot{width:100%;flex-direction:column;gap:12px}
   .donations .price{white-space:nowrap}
   .donations .product.soon .body{min-height:0}
+  .don-toggle{display:inline-flex;align-items:center;gap:12px;background:none;border:0;color:var(--text);font:inherit;font-size:1.8rem;font-weight:700;cursor:pointer;padding:0;margin-bottom:8px}
+  .don-arrow{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;font-size:1rem;background:var(--card);border:1px solid var(--line);color:var(--pink);transition:transform .2s}
+  .don-toggle[aria-expanded="true"] .don-arrow{transform:rotate(180deg)}
+  .don-toggle:hover .don-arrow{border-color:var(--pink)}
   .don-icon{width:120px;height:120px;border-radius:50%;margin:4px auto 2px;box-shadow:0 0 28px rgba(255,79,154,.3)}
 
   /* how to buy */
@@ -360,8 +364,12 @@
 
   <section id="donations">
     <div class="wrap">
-      <h2>Donations</h2>
-      <p class="sub">Want to support Xenith? Every donation helps me keep making and updating these tools. Thank you! 💜</p>
+      <button class="don-toggle" id="don-toggle" aria-expanded="false" aria-controls="don-panel" onclick="toggleDon()">
+        <span>Donations</span><span class="don-arrow" aria-hidden="true">&#9662;</span>
+      </button>
+      <p class="sub" style="margin-bottom:0">Totally optional. Click to see ways to support Xenith.</p>
+      <div class="don-panel" id="don-panel" hidden>
+      <p class="sub" style="margin-top:18px">Every donation helps me keep making and updating these tools. Thank you! 💜</p>
       <div class="products donations">
         <div class="product">
           <div class="body">
@@ -401,6 +409,7 @@
         </div>
       </div>
       <p class="note">Robux donations are Roblox gamepasses. Roblox only lets accounts aged 16+ open them for now.</p>
+      </div>
     </div>
   </section>
 
@@ -457,6 +466,15 @@
 <script>
   function openAM(){document.getElementById("am-modal").classList.add("open")}
   function closeAM(){document.getElementById("am-modal").classList.remove("open")}
+  function toggleDon(open){
+    const b=document.getElementById("don-toggle"), p=document.getElementById("don-panel");
+    const show = open===undefined ? p.hidden : open;
+    p.hidden=!show; b.setAttribute("aria-expanded", show);
+  }
+  // links to #donations (Discord, the menu) open it straight away
+  function donFromHash(){ if(location.hash==="#donations") toggleDon(true) }
+  window.addEventListener("hashchange", donFromHash); donFromHash();
+  document.querySelectorAll('a[href="#donations"]').forEach(function(a){ a.addEventListener("click", function(){ toggleDon(true) }) });
   document.addEventListener("keydown",function(e){if(e.key==="Escape")closeAM()});
 </script>
 <script>
