@@ -90,6 +90,12 @@
   .product.soon .body{align-items:center;justify-content:center;text-align:center;min-height:300px}
   .empty{display:none;color:var(--muted);padding:30px 0;text-align:center}
   .note{font-size:.88rem;color:var(--muted);margin-top:16px}
+  .donations{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+  .donations .body{align-items:center;text-align:center}
+  .donations .foot{width:100%;flex-direction:column;gap:12px}
+  .donations .price{white-space:nowrap}
+  .donations .product.soon .body{min-height:0}
+  .don-icon{width:120px;height:120px;border-radius:50%;margin:4px auto 2px;box-shadow:0 0 28px rgba(255,79,154,.3)}
 
   /* how to buy */
   .steps{counter-reset:s;list-style:none}
@@ -141,6 +147,7 @@
       <a href="#store">Store</a>
       <a href="#buy">How to buy</a>
       <a href="#faq">FAQ</a>
+      <a href="#donations">Donations</a>
       <a href="https://discord.gg/xQhh537BUm">Discord</a>
        <span class="legal-links">
         <a href="terms.html">Terms</a>
@@ -351,6 +358,52 @@
     </div>
   </section>
 
+  <section id="donations">
+    <div class="wrap">
+      <h2>Donations</h2>
+      <p class="sub">Want to support Xenith? Every donation helps me keep making and updating these tools. Thank you! 💜</p>
+      <div class="products donations">
+        <div class="product">
+          <div class="body">
+            <img class="don-icon" src="img/donation.png" alt="Small Donation">
+            <h3>Small Donation</h3>
+            <div class="foot">
+              <div class="price">50 R$</div>
+              <a class="btn small" href="https://www.roblox.com/game-pass/2036822510" target="_blank" rel="noopener">Donate</a>
+            </div>
+          </div>
+        </div>
+        <div class="product">
+          <div class="body">
+            <img class="don-icon" src="img/donation_big.png" alt="Big Donation">
+            <h3>Big Donation</h3>
+            <div class="foot">
+              <div class="price">200 R$</div>
+              <a class="btn small" href="https://www.roblox.com/game-pass/2036924527" target="_blank" rel="noopener">Donate</a>
+            </div>
+          </div>
+        </div>
+        <div class="product">
+          <div class="body">
+            <img class="don-icon" src="img/donation_huge.png" alt="Huge Donation">
+            <h3>Huge Donation</h3>
+            <div class="foot">
+              <div class="price">500 R$</div>
+              <a class="btn small" href="https://www.roblox.com/game-pass/2037398514" target="_blank" rel="noopener">Donate</a>
+            </div>
+          </div>
+        </div>
+        <div class="product soon">
+          <div class="body">
+            <h3>Real money donations</h3>
+            <p>Coming soon. Join the Discord to hear when it's ready.</p>
+          </div>
+        </div>
+      </div>
+      <p class="note">Robux donations are Roblox gamepasses. Roblox only lets accounts aged 16+ open them for now.</p>
+    </div>
+  </section>
+
   <section>
     <div class="wrap">
       <div class="cta">
@@ -374,6 +427,7 @@
         <a href="#store">Store</a>
         <a href="#buy">How to buy</a>
         <a href="#faq">FAQ</a>
+        <a href="#donations">Donations</a>
       </div>
     </div>
     <p>&copy; 2026 Xenith Macros. All rights reserved.</p>
